@@ -1,2 +1,2 @@
-# gitcommit-
+# gitcommit
 Finding githubbies for @candacerogue
