@@ -1,15 +1,14 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
 
-const Main = createReactClass({
+const Candace = createReactClass({
   render() {
     return (
       <div>
-          Main.js
-        {React.cloneElement(this.props.children, this.props)}
+        Candace
       </div>
     )
   }
 })
 
-export default Main;
+export default Candace;
