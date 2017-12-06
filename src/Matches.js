@@ -43,6 +43,7 @@ const Matches = createReactClass({
           labelPosition="before"
           icon={<HighlightOff />}
           style={styles.button}
+          onClick={() => alert('boo')}
         />
         <RaisedButton
           label="  --save  "

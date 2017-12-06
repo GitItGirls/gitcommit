@@ -7,18 +7,24 @@ import Login from './src/Login';
 import User from './src/User';
 import Candace from './src/Candace';
 
+
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+// default  exportstore, named export history
+import store, { history } from './store';
 
 
 const router = (
   <MuiThemeProvider>
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Candace}></IndexRoute>
-      <Route path="/candace" component={Candace}></Route>
-      <Route path="/user" component={User}></Route>
-    </Route>
-  </Router>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Login}></IndexRoute>
+          <Route path="/candace" component={Candace}></Route>
+          <Route path="/user" component={User}></Route>
+        </Route>
+      </Router>
+    </Provider>
   </MuiThemeProvider>
 )
 
