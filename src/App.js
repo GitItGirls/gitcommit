@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from './../actions/actionCreators';
+
+import { Route, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './Login';
+
+function mapStateToProps(state) {
+  return {
+    candaceView: state.candaceView
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 
 class App extends Component {
   constructor(props) {
@@ -30,11 +43,11 @@ render() {
           return <Register {...props} />
         }}
         /> */}
-      
+      {this.props.children}
       </div>
       </MuiThemeProvider>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
