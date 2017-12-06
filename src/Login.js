@@ -9,6 +9,7 @@ const Login = createReactClass({
       <div>
         Login
         <Link to="/candace">Candace</Link>
+        <Link to="/user">User</Link>
       </div>
     )
   }
