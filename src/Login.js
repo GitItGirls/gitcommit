@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from './../actions/actionCreators';
+import { Route, Redirect } from 'react-router';
+
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import DropDownMenu from 'material-ui/DropDownMenu';
+
+function mapStateToProps(state) {
+    return {
+      currentUserCandace: state.currentUserCandace
+    }
+  }
+  
+function mapDispatchToProps(dispatch) {
+return bindActionCreators(actionCreators, dispatch);
+}
 
 const styles = {
     customWidth: {
@@ -12,6 +28,7 @@ const styles = {
     display: 'inline-block'
     
   };
+
 
 class Login extends Component {
     constructor(props) {
@@ -60,8 +77,10 @@ class Login extends Component {
     }
 
     render () {
+    
         return (
             <div className>
+        
                   <DropDownMenu
                     onChange={this.handleChange}
                     style={styles.customWidth}
@@ -102,7 +121,8 @@ class Login extends Component {
                       onClick={(event) => this.handleClick(event)} 
                     />
                 </DropDownMenu>
-
+                <button onClick={this.props.currentUserCandace}>go to candace side</button>
+                <button onClick={this.props.currentUserUser}>go to user side</button>
             </div>
         )
     }
@@ -112,4 +132,4 @@ const style = {
     margin: 15,
 };
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -8,7 +8,7 @@ import rootReducer from './reducers/index';
 
 // create an obj for the default data
 const defaultState = {
-  currentUser: '',
+  currentUser: 'unknown',
   candaceView: {
     start: true,
     matches: false,

@@ -1,13 +1,14 @@
-function currentUser(state = '', action) {
+function currentUser(state = {}, action) {
   switch(action.type) {
     case 'CANDACE' :
-      console.log("current user reducer");
       console.log(state);
-      return 'candace';
-    case 'NOT_CANDACE' :
-      console.log("current user reducer");
+      return 'candace'
+    case 'USER' :
       console.log(state);
-      return 'notCandace';
+      return 'user'
+    case 'UNKNOWN' :
+      console.log(state);
+      return 'unknown'
     default:
       return state;
   }
