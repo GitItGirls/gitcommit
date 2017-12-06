@@ -1,2 +1,2 @@
-# gitcommit :cat:
+# gitcommit :shipit:
 Finding githubbies for @candacerogue
