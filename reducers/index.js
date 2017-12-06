@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import posts from './posts';
+import currentUser from './currentUser';
+import candaceView from './candaceView';
 
 
-const rootReducer = combineReducers({posts, routing: routerReducer});
+const rootReducer = combineReducers({currentUser, candaceView, routing: routerReducer});
 
 export default rootReducer;
