@@ -5,7 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import App from './src/App';
 import Login from './src/Login';
 import User from './src/User/User';
-import Candace from './src/Candace';
+import Candace from './src/Candace/index';
+
 
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';

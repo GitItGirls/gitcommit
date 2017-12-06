@@ -1,9 +1,10 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
-import { Link } from 'react-router';
+import { Link, Redirect } from 'react-router';
 
 const Login = createReactClass({
   render() {
+    
     return (
       <div>
         Login

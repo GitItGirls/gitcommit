@@ -8,36 +8,36 @@ import HighlightOff from 'material-ui/svg-icons/action/highlight-off';
 import FavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import FontIcon from 'material-ui/FontIcon';
 
-const style = {width: 200, height:200};
-
 const styles = {
   button: {
     margin: 12,
+    height: 50,
+    width: 150,
   },
-  exampleImageInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: '100%',
-    opacity: 0,
-  },
+  image: {
+    width: 200, 
+    height:200
+  }
 };
 
-const Matches = createReactClass({
+const Match = createReactClass({
   render() {
     return (
-      <div>
-         <Paper style={style} zDepth={2} circle={true}>
-        <Avatar
-          src="http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg"
-          size={30}
-          style={style}
-        />
+      <div className='match'>
+      <div className='match-name'>
+      <h2>github1</h2>
+      </div>
+      <div className='match-image'>
+        
+        <Paper style={styles.image} zDepth={2} circle={true}>
+          <Avatar
+            src="http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg"
+            style={styles.image}
+          />
         </Paper>
+        </div>
 
+        <div className='match-buttons'>
         <RaisedButton
           label="    -D    "
           labelPosition="before"
@@ -51,10 +51,11 @@ const Matches = createReactClass({
           icon={<FavoriteBorder />}
           style={styles.button}
         />
-        
+        </div>
+
       </div>
     )
   }
 })
 
-export default Matches;
+export default Match;
