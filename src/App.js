@@ -6,8 +6,7 @@ import * as actionCreators from './../actions/actionCreators';
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts,
-    comments: state.comments
+    candaceView: state.candaceView
   }
 }
 
@@ -23,8 +22,6 @@ class App extends Component {
   render() {
     return (
       <div>   
-        Hello  
-        <button onClick={this.props.increment.bind(null, 0)}>Button</button>
         {this.props.children}
       </div>
     )

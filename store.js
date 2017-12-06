@@ -8,10 +8,12 @@ import rootReducer from './reducers/index';
 
 // create an obj for the default data
 const defaultState = {
-  posts: [
-    {
-       "likes":3,
-   }]
+  currentUser: '',
+  candaceView: {
+    start: true,
+    matches: false,
+    saved: false
+  }
 }
 
 const store = createStore(rootReducer, defaultState);
