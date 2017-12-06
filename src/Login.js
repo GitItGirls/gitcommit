@@ -7,8 +7,8 @@ const Login = createReactClass({
     return (
       <div>
         Login
-        <Link to="/user">User</Link>
         <Link to="/candace">Candace</Link>
+        <Link to="/user">User</Link>
       </div>
     )
   }

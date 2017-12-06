@@ -1,18 +1,34 @@
+import React, { Component } from 'react';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import * as actionCreators from '../actions/actionCreators';
-import Main from './Main';
+import * as actionCreators from './../actions/actionCreators';
 
-// function mapStateToProps(state) {
-//   return {
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+    comments: state.comments
+  }
+}
 
-// function mapDispatchToProps(dispatch) {
-//   // return bindActionCreators(actionCreators, dispatch);
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 
-// const App = connect(mapStateToProps, mapDispatchToProps)(Main);
-const App = Main;
+class App extends Component {
+  constructor(props) {
+  super(props);
+  }
 
-export default App;
+  render() {
+    return (
+      <div>   
+        Hello  
+        <button onClick={this.props.increment.bind(null, 0)}>Button</button>
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
