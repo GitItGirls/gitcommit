@@ -1,11 +1,3 @@
-// increment like
-export function increment(index) {
-  return {
-    type: 'COUNTER',
-    index
-  }
-}
-
 export function candaceViewStart(index) {
   return {
     type: 'START',
@@ -27,5 +19,21 @@ export function candaceViewSaved(index) {
     index
   }
 }
+
+export function currentUserCandace(index) {
+  return {
+    type: 'CANDACE',
+    index
+  }
+}
+
+export function currentUserUser(index) {
+  return {
+    type: 'USER',
+    index
+  }
+}
+
+
 
 
