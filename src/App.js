@@ -46,20 +46,22 @@ class App extends Component {
 render() {
   if (this.props.currentUser === 'unknown') {
     return (
-      <div className="App">
+      <div>
       <AppBar
       style={styles.appBar}
       title={<span style={styles.title}>candace / gitcommit</span>}
       iconElementLeft={<IconButton><Favorite /></IconButton>}
       iconElementRight={<FlatButton label="< >" />}
       />
+      <div className='center'>
       <Login />
       {this.props.children}
+      </div>
       </div>
       );
   } else if (this.props.currentUser === 'candace') {
     return (
-      <div className="App">
+      <div>
       <AppBar
       style={styles.appBar}
       title={<span style={styles.title}>candace / gitcommit</span>}
@@ -72,7 +74,7 @@ render() {
       );
   } else if (this.props.currentUser === 'user') {
     return (
-      <div className="App">
+      <div>
       <AppBar
       style={styles.appBar}
       title={<span style={styles.title}>candace / gitcommit</span>}

@@ -14,6 +14,30 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fix {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ghostbutton {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  color: white;
+  border: none;
+}
+
+button:focus {outline:0;}
+
 /* User Side Styling */
 .container {
   position: relative;
