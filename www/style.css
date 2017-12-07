@@ -5,8 +5,13 @@
 body {
    margin: 0;
   padding: 0;
-  background: #f7f7f7;
+  /* background: #f7f7f7; */
+  background: linear-gradient(#e0efff, #ffffff); /* Standard syntax */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* User Side Styling */
@@ -21,12 +26,14 @@ body {
 @media (min-width: 769px) {
   .container {
     margin: 2.5rem auto;
+    margin-top: 150px;
   }
 }
 
 /* Result Component */
 .result {
   padding: 1.5rem 2.5rem;
+  box-shadow: 0 4px 8px 0 rgba(92, 92, 92, 0.2), 0 6px 20px 0 rgba(92, 92, 92, 0.2);
 }
 
 /* Quiz Component */
@@ -134,7 +141,7 @@ body {
 }
 
 /* Candace Side Styling */
-.candace {
+.center {
   margin-top: -100px;
   width: 100%;
   height: 100%;
@@ -187,7 +194,7 @@ h2 {
 }
 
 .stargazers {
-  width: 40%;
+  width: 30%;
 }
 
 .stargazer {

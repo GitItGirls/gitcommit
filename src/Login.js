@@ -80,7 +80,7 @@ class Login extends Component {
     
         return (
             <div className>
-        
+                   
                   <DropDownMenu
                     onChange={this.handleChange}
                     style={styles.customWidth}
@@ -123,6 +123,7 @@ class Login extends Component {
                 </DropDownMenu>
                 <button onClick={this.props.currentUserCandace}>go to candace side</button>
                 <button onClick={this.props.currentUserUser}>go to user side</button>
+                {/* <img src='./../www/cats.jpg' /> */}
             </div>
         )
     }

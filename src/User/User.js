@@ -5,6 +5,11 @@ import Quiz from './Quiz';
 import quizQuestions from './quizQuestions';
 import Denied from './Denied';
 import Match from './Match';
+import Paper from 'material-ui/Paper';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import Favorite from 'material-ui/svg-icons/action/favorite';
+import FlatButton from 'material-ui/FlatButton';
 
 class User extends Component {
   constructor(props) {
@@ -124,6 +129,7 @@ class User extends Component {
 
   renderQuiz() {
     return (
+      
       <Quiz
         answer={this.state.answer}
         answerOptions={this.state.answerOptions}
@@ -136,22 +142,17 @@ class User extends Component {
   }
 
   renderResult() {
-    return (
 
-    
-      this.state.match ? <Match /> : <Denied />
-      // <Result quizResult={this.state.result} />
-      // if (this.state.result === true) {
-      //   return (<Match />)
-      // } else if (this.state.result === false) {
-      //   return (<Denied/>)
-      // }
+    return (
+      this.state.match ? <Match /> :  <Denied className='shadow'/>
     )
+  
   }
 
   render() {
     return (
       <div>
+        
         User Component
         {this.state.quizTaken ? this.renderResult() : this.renderQuiz()}
       </div>

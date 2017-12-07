@@ -12,6 +12,7 @@ function Denied(props) {
       transitionAppear
       transitionAppearTimeout={500}
     >
+
       <div>
         {/* Looks like you're a <strong>{props.quizResult}</strong>! */}
         <p>Hmm, well this is awkward.<br/>
@@ -20,6 +21,7 @@ function Denied(props) {
 
         Sorry, we're unable to accept your merge request at this time. </p>
       </div>
+
     </ReactCSSTransitionGroup>
   );
 }

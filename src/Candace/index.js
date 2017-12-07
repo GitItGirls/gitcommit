@@ -37,7 +37,7 @@ class Candace extends Component {
     console.log(this.props.candaceView);
     if (this.props.candaceView.start === true) {
       return (
-        <div className='candace'>
+        <div className='center'>
           <Start 
           candaceView={this.props} 
           update={this.update}
@@ -47,7 +47,7 @@ class Candace extends Component {
       )
     } else if (this.props.candaceView.matches === true) {
       return (
-        <div className='candace'>
+        <div className='center'>
           <Matches
           candaceView={this.props}
           hubs={this.state.hubs}
@@ -56,7 +56,7 @@ class Candace extends Component {
       )
     } else if (this.props.candaceView.saved === true) {
       return (
-        <div className='candace'>
+        <div className='center'>
           <Saved
           candaceView={this.props}
           hubs={this.state.hubs}

@@ -59,6 +59,13 @@ class Matches extends Component {
       }
     };
     
+    let imageArr = [
+      "https://avatars0.githubusercontent.com/u/25655259?s=460&v=4",
+      "https://avatars0.githubusercontent.com/u/29642577?s=460&v=4",
+      "https://avatars0.githubusercontent.com/u/17396586?s=460&v=4",
+      "http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg",
+      "https://avatars1.githubusercontent.com/u/12474694?s=460&v=4"
+    ]
 
     return (
       <div className='match'>
@@ -69,7 +76,7 @@ class Matches extends Component {
         
         <Paper style={styles.image} zDepth={2} circle={true}>
           <Avatar
-            src="http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg"
+            src={imageArr[this.state.count]}
             style={styles.image}
           />
         </Paper>

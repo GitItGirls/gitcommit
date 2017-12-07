@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Question from './Question';
 import QuestionCount from './QuestionCount';
 import AnswerOption from './AnswerOption';
+import Paper from 'material-ui/Paper';
 
 function Quiz(props) {
 
@@ -29,6 +30,7 @@ function Quiz(props) {
       transitionAppear
       transitionAppearTimeout={500}
     >
+    <Paper>
       <div key={props.questionId}>
         <QuestionCount
           counter={props.questionId}
@@ -39,6 +41,7 @@ function Quiz(props) {
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
       </div>
+      </Paper>
     </ReactCSSTransitionGroup>
   );
 }
