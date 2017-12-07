@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import createReactClass from 'create-react-class';
 import { Link } from 'react-router';
 
 import { bindActionCreators } from 'redux';
@@ -22,27 +21,46 @@ function mapDispatchToProps(dispatch) {
 
 class Candace extends Component {
   constructor(props) {
-  super(props);
+    super(props);
+    this.state = {
+      hubs: []
+    };
+  
+    this.update = this.update.bind(this);
+  }
+
+  update(obj) {
+    this.setState(obj);
   }
 
   render() {
     console.log(this.props.candaceView);
     if (this.props.candaceView.start === true) {
       return (
-        <div>
-          <Start candaceView={this.props} />
+        <div className='center'>
+          <Start 
+          candaceView={this.props} 
+          update={this.update}
+          hubs={this.state.hubs}
+          />
         </div>
       )
     } else if (this.props.candaceView.matches === true) {
       return (
-        <div>
-          <Matches candaceView={this.props} />
+        <div className='center'>
+          <Matches
+          candaceView={this.props}
+          hubs={this.state.hubs}
+          />
         </div>
       )
     } else if (this.props.candaceView.saved === true) {
       return (
-        <div>
-          <Saved candaceView={this.props} />
+        <div className='center'>
+          <Saved
+          candaceView={this.props}
+          hubs={this.state.hubs}
+          />
         </div>
       )
     }

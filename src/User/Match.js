@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Paper from 'material-ui/Paper';
 
-function Result(props) {
+function Match(props) {
   return (
     <ReactCSSTransitionGroup
       className="container result"
@@ -12,11 +13,15 @@ function Result(props) {
       transitionAppear
       transitionAppearTimeout={500}
     >
+      
       <div>
-        Looks like you're a <strong>{props.quizResult}</strong>!
+        Way to go, Idaho! Great job writing high quality code.
+
+        {/* Please click below to add a git commit -m and submit your pull request. */}
       </div>
+
     </ReactCSSTransitionGroup>
   );
 }
 
-export default Result;
+export default Match;

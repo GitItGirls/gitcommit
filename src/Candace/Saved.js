@@ -4,7 +4,6 @@ import createReactClass from 'create-react-class';
 import Avatar from 'material-ui/Avatar';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 
@@ -22,16 +21,24 @@ const styles = {
 
 const Saved = createReactClass({
   render() {
+    let imageArr = [
+      "https://avatars0.githubusercontent.com/u/25655259?s=460&v=4",
+      "https://avatars0.githubusercontent.com/u/29642577?s=460&v=4",
+      "https://avatars0.githubusercontent.com/u/17396586?s=460&v=4",
+      "http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg",
+      "https://avatars1.githubusercontent.com/u/12474694?s=460&v=4"
+    ]
+    
     let savedArr = [];
-    for (let x = 0; x < 10; x ++) {
+    for (let x = 0; x < this.props.hubs.length; x ++) {
       savedArr.push(
       <div>
       <ListItem
-        primaryText="Brendan Lim"
-        leftAvatar={<Avatar src="http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg" />}
+        primaryText={this.props.hubs[x].username}
+        leftAvatar={<Avatar src={imageArr[x]} />}
         rightIcon={<CommunicationChatBubble />}
+
       />
-      <Divider />
       </div>
     );
     }

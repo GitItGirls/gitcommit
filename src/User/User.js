@@ -3,7 +3,13 @@ import update from 'react-addons-update';
 
 import Quiz from './Quiz';
 import quizQuestions from './quizQuestions';
-import Result from './Result';
+import Denied from './Denied';
+import Match from './Match';
+import Paper from 'material-ui/Paper';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import Favorite from 'material-ui/svg-icons/action/favorite';
+import FlatButton from 'material-ui/FlatButton';
 
 class User extends Component {
   constructor(props) {
@@ -20,7 +26,8 @@ class User extends Component {
        nope: 0,
        forreals: 0
      },
-     result: ''
+     quizTaken: null,
+     match: null
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -93,19 +100,36 @@ class User extends Component {
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
     return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+
+    // if (this.state.answersCount.yas >= 8) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   setResults (result) {
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
+    console.log(result);
+    // if (result.length === 1) {
+    //   this.setState({ result: result[0] });
+    // } else {
+    //   this.setState({ result: 'Undetermined' });
+    // }
+    // console.log(this.state.answersCount.yas);
+
+    if (result[0] === "yas" && this.state.answersCount.yas >= 4) {
+      this.setState({ match: true });
+      this.setState({ quizTaken: true });
     } else {
-      this.setState({ result: 'Undetermined' });
+      this.setState({ match: false });
+      this.setState({ quizTaken: true });
     }
   }
 
 
   renderQuiz() {
     return (
+      
       <Quiz
         answer={this.state.answer}
         answerOptions={this.state.answerOptions}
@@ -118,16 +142,19 @@ class User extends Component {
   }
 
   renderResult() {
+
     return (
-      <Result quizResult={this.state.result} />
-    );
+      this.state.match ? <Match /> :  <Denied className='shadow'/>
+    )
+  
   }
 
   render() {
     return (
       <div>
+        
         User Component
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
+        {this.state.quizTaken ? this.renderResult() : this.renderQuiz()}
       </div>
     )
   }

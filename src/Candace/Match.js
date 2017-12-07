@@ -25,7 +25,7 @@ const Match = createReactClass({
     return (
       <div className='match'>
       <div className='match-name'>
-      <h2>github1</h2>
+      <h2>{this.props.username}</h2>
       </div>
       <div className='match-image'>
         
@@ -37,21 +37,6 @@ const Match = createReactClass({
         </Paper>
         </div>
 
-        <div className='match-buttons'>
-        <RaisedButton
-          label="    -D    "
-          labelPosition="before"
-          icon={<HighlightOff />}
-          style={styles.button}
-          onClick={() => alert('boo')}
-        />
-        <RaisedButton
-          label="  --save  "
-          labelPosition="before"
-          icon={<FavoriteBorder />}
-          style={styles.button}
-        />
-        </div>
 
       </div>
     )
