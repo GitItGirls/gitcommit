@@ -29,7 +29,7 @@ class Candace extends Component {
     console.log(this.props.candaceView);
     if (this.props.candaceView.start === true) {
       return (
-        <div>
+        <div className='candace'>
           <Start candaceView={this.props} />
         </div>
       )
