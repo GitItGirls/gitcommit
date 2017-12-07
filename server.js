@@ -3,14 +3,19 @@ const app = express();
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const gitHubController = require('./GitHubController');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+const client_id = '188d348aea165458e1d1';
+const clientSecret = '83631e4790470dee615c3eb74272529b3ec3ec9c';
+const cors = require('cors');
+const request = require('request');
+
 
 app.use(express.static(__dirname + '/www'));
+app.use(express.static(__dirname + '/src/assets'));
 
 mongoose.connect('mongodb://candace:ilovetesting@ds133166.mlab.com:33166/githubs');
 
@@ -19,11 +24,6 @@ mongoose.connection.once('open', (err, success) => {
   console.log('Connected, yay!');
 });
 
-const server = app.listen(3000, function() {
-  const host = server.address().address;
-  const port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
-});
 
 app.get('/get', gitHubController.getGitHubs);
 
@@ -51,18 +51,25 @@ app.get('/githubauth', (req, res) => {
       console.log('access tocken accessed: ', accessToken);
       
 
-      request.get({ url: 'https://api.github.com/user/emails?access_token=' + accessToken, headers: { 'User-Agent': 'Superer Shopperer' } }, function (err, response, body) {
+      request.get({ url: 'https://api.github.com/user/emails?access_token=' + accessToken, headers: { 'User-Agent': 'gitcommit' } }, function (err, response, body) {
           // console.log('body', body);
           const userEmail = JSON.parse(body)[0].email;
           console.log('email: ', userEmail)
-          res.cookie('userEmail', userEmail);
+          
+          // res.cookie('userEmail', userEmail);
           // res.send('hi');
-          res.redirect('http://www.localhost:3000/');
+          // res.redirect('http://www.localhost:3000');
           
       });
   })
 })
 
+const server = app.listen(3000, function() {
+  const host = server.address().address;
+  const port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+
+  });
 
 
 

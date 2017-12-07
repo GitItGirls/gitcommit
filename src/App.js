@@ -85,28 +85,6 @@ render() {
       );
   }
 
-  // return (
-  //   <MuiThemeProvider>
-  //   <div className="App">
-    
-    
-  //   {/* <Login/> */}
-  //     {/* <Route
-  //       exact path='/login'
-  //       render={(props) => {
-  //         return <Login {...props}  />
-  //       }}
-  //     /> */}
-  //     {/* <Route 
-  //       exact path='/register'
-  //       render={(props) => {
-  //         return <Register {...props} />
-  //       }}
-  //       /> */}
-  //     {this.props.children}
-  //     </div>
-  //     </MuiThemeProvider>
-  //   );
   }
 }
 
