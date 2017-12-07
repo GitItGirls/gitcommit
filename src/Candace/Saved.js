@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import createReactClass from 'create-react-class';
 
 import Avatar from 'material-ui/Avatar';
@@ -6,6 +6,7 @@ import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+import Snackbar from 'material-ui/Snackbar';
 
 const styles = {
   button: {
@@ -19,14 +20,28 @@ const styles = {
   }
 };
 
-const Saved = createReactClass({
+
+class Saved extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+
+  this.sendEmail = this.sendEmail.bind(this);
+  }
+
+  sendEmail() {
+    this.setState({
+      open: true,
+    });
+    }
+
   render() {
     let imageArr = [
       "https://avatars0.githubusercontent.com/u/25655259?s=460&v=4",
-      "https://avatars0.githubusercontent.com/u/29642577?s=460&v=4",
-      "https://avatars0.githubusercontent.com/u/17396586?s=460&v=4",
-      "http://i272.photobucket.com/albums/jj198/DublinDub69/Default%20Album/SeriousCatAvatar.jpg",
-      "https://avatars1.githubusercontent.com/u/12474694?s=460&v=4"
+      "https://avatars2.githubusercontent.com/u/26263410?s=400&v=4",
+      "https://avatars0.githubusercontent.com/u/13397057?s=460&v=4"
     ]
     
     let savedArr = [];
@@ -36,7 +51,7 @@ const Saved = createReactClass({
       <ListItem
         primaryText={this.props.hubs[x].username}
         leftAvatar={<Avatar src={imageArr[x]} />}
-        rightIcon={<CommunicationChatBubble />}
+        rightIcon={<CommunicationChatBubble onClick={this.sendEmail}/>}
 
       />
       </div>
@@ -49,9 +64,14 @@ const Saved = createReactClass({
         {savedArr}
         </List>
         </Paper>
+        <Snackbar
+          open={this.state.open}
+          message="able to merge, pull request accepted (email sent)"
+          autoHideDuration={3000}
+        />
       </div>
     )
   }
-})
+}
 
 export default Saved;

@@ -152,8 +152,6 @@ class User extends Component {
   render() {
     return (
       <div>
-        
-        User Component
         {this.state.quizTaken ? this.renderResult() : this.renderQuiz()}
       </div>
     )

@@ -23,15 +23,14 @@ return bindActionCreators(actionCreators, dispatch);
 const paperStyle = {
     customWidth: {
       width: 400,
-      marginLeft: 450, 
-      marginTop: 150     
+    //   marginLeft: 450, 
+    //   marginTop: -100     
     },
-    display: 'inline-block'
+    // display: 'inline-block'
     
   };
 
 const buttonStyle = {
-    marginLeft: 120,
     marginTop: 15,
     marginBottom: 15
 
@@ -39,9 +38,7 @@ const buttonStyle = {
     // backgroundImage: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
 };
 
-const centerStyle = {
-    // alignContent: center,
-};
+
 
 
 class Login extends Component {
@@ -86,8 +83,13 @@ class Login extends Component {
                     className="my-profile"
                     style={paperStyle.customWidth}
                    >
-                   <div style={centerStyle}>
+                   <div className='profile'>
+                        <div className='fix'>
+                        <button className="ghostbutton" onClick={this.props.currentUserCandace}>C</button>
                         <img src="./profile.jpg" alt="profile" width="150" height="auto"/>
+                        <button className="ghostbutton" onClick={this.props.currentUserUser}>U</button>
+                        </div>
+                    
                         <br/>
                         <a href="https://github.com/login/oauth/authorize?scope=user:email&amp;client_id=188d348aea165458e1d1">
                             <RaisedButton 
@@ -100,8 +102,6 @@ class Login extends Component {
                     </div>
                 </Paper>
 
-                <button onClick={this.props.currentUserCandace}>go to candace side</button>
-                <button onClick={this.props.currentUserUser}>go to user side</button>
             </div>
         )
     }
