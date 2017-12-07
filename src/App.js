@@ -7,9 +7,6 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-router';
-import { Switch } from 'react-router-dom'
-
 import Login from './Login';
 import User from './User/User';
 import Candace from './Candace/index';
@@ -25,14 +22,12 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-
 class App extends Component {
   constructor(props) {
     super(props)
   }
 
 render() {
-  console.log(this.props.currentUser);
   if (this.props.currentUser === 'unknown') {
     return (
       <MuiThemeProvider>
