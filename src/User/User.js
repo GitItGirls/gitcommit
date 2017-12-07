@@ -3,7 +3,8 @@ import update from 'react-addons-update';
 
 import Quiz from './Quiz';
 import quizQuestions from './quizQuestions';
-import Result from './Result';
+import Denied from './Denied';
+import Match from './Match';
 
 class User extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class User extends Component {
        nope: 0,
        forreals: 0
      },
-     result: ''
+     quizTaken: null,
+     match: null
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -93,13 +95,29 @@ class User extends Component {
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
     return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+
+    // if (this.state.answersCount.yas >= 8) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   setResults (result) {
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
+    console.log(result);
+    // if (result.length === 1) {
+    //   this.setState({ result: result[0] });
+    // } else {
+    //   this.setState({ result: 'Undetermined' });
+    // }
+    // console.log(this.state.answersCount.yas);
+
+    if (result[0] === "yas" && this.state.answersCount.yas >= 4) {
+      this.setState({ match: true });
+      this.setState({ quizTaken: true });
     } else {
-      this.setState({ result: 'Undetermined' });
+      this.setState({ match: false });
+      this.setState({ quizTaken: true });
     }
   }
 
@@ -119,15 +137,23 @@ class User extends Component {
 
   renderResult() {
     return (
-      <Result quizResult={this.state.result} />
-    );
+
+    
+      this.state.match ? <Match /> : <Denied />
+      // <Result quizResult={this.state.result} />
+      // if (this.state.result === true) {
+      //   return (<Match />)
+      // } else if (this.state.result === false) {
+      //   return (<Denied/>)
+      // }
+    )
   }
 
   render() {
     return (
       <div>
         User Component
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
+        {this.state.quizTaken ? this.renderResult() : this.renderQuiz()}
       </div>
     )
   }
