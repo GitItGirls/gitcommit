@@ -22,7 +22,12 @@ function mapDispatchToProps(dispatch) {
 
 class Candace extends Component {
   constructor(props) {
-  super(props);
+    super(props);
+      this.state = {
+        pendingHubs: {}
+      };
+  
+      this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
 
   render() {
